@@ -1,7 +1,9 @@
 backend:
   name: git-gateway
-  branch: main          # your default branch
-  repo: your-github-username/mohan-site
+  auth:
+    type: auth0
+    domain: dev-bcdhomcndtpgkuav.auth0.com
+    client_id: v62JXFyzk8d6bJyolgQvF9cRt5u3mHYB
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
