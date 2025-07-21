@@ -1,0 +1,41 @@
+/* Google fonts (free) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Merriweather', serif;
+}
+
+.hero {
+  background: url('../img/hero.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,.55); /* dark overlay */
+  background-blend-mode: overlay;
+}
+
+.card {
+  transition: transform .2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.hero-small {
+  background: url('../img/about-hero.jpg') center/cover no-repeat;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,.55);
+  background-blend-mode: overlay;
+}
+#tamilCarousel {
+  max-width: 300px;   /* 50 % of a typical 1200-px row */
+  margin: 0 auto;     /* center it */
+}

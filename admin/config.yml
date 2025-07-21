@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main          # your default branch
+  repo: your-github-username/mohan-site
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "index.html"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string"}
+          - {label: "Latest Book Image", name: "hero_img", widget: "image"}
+          - {label: "Amazon Link", name: "hero_link", widget: "string"}
