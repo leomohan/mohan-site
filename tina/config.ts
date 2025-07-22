@@ -4,25 +4,25 @@ const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF ||
 
 export default defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Use the new ENV var name
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   build: {
     outputFolder: "admin",
-    publicFolder: ".", // Your site's root as public folder
+    publicFolder: "public", // <--- UPDATED! This points to your /public folder
   },
   media: {
     tina: {
-      mediaRoot: "uploads", // Images will go into publicFolder/uploads
-      publicFolder: ".", // Base public folder is root
+      mediaRoot: "uploads", // This will put uploaded images in /public/uploads/
+      publicFolder: "public", // <--- UPDATED! This points to your /public folder
     },
   },
   schema: {
     collections: [
       {
-        name: "homepage", // Unique name for your collection
+        name: "homepage",
         label: "Home Page",
-        path: "content", // Tina will store data for this in 'content/homepage.json'
-        format: "json",  // Or 'md', 'mdx', 'yaml'
+        path: "content",
+        format: "json",
         fields: [
           {
             type: "string",
@@ -36,7 +36,7 @@ export default defineConfig({
             label: "Hero Subtitle",
           },
           {
-            type: "image", // Tina's image widget
+            type: "image",
             name: "hero_img",
             label: "Latest Book Image",
           },
@@ -45,26 +45,19 @@ export default defineConfig({
             name: "hero_link",
             label: "Amazon Link",
           },
-          // If you have a main rich text area for the body of the page:
           {
-            type: "rich-text", // This is Tina's WYSIWYG editor
+            type: "rich-text",
             name: "body",
             label: "Page Body Content",
           },
         ],
-        // Since this is a single instance (homepage), we use 'is-singleton'
-        // Tina will manage a file like content/homepage.json based on this schema.
         ui: {
-          router: ({ document }) => `/`, // When you edit this, it routes to your homepage
+          router: ({ document }) => `/`,
           allowedActions: {
-            create: false, // Don't allow creating new homepages
-            delete: false, // Don't allow deleting the homepage
+            create: false,
+            delete: false,
           },
-          // This tells Tina this is a single entry.
-          // The data will be stored at path + name + .format (e.g., content/homepage.json)
           filename: {
-            // Your homepage content will be in 'content/homepage.json'
-            // You can adjust this path if you want it elsewhere
             readonly: true,
             slugify: ({ name }) => "homepage",
           },
