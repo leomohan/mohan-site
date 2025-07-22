@@ -4,7 +4,7 @@
   "description": "A plain HTML website with TinaCMS integration.",
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"npx http-server .\"",
+    "dev": "tinacms dev -c \"npx http-server public\"",
     "build": "tinacms build && tsc --project tina/tsconfig.json && node build-content.mjs",
     "start": "npx http-server ."
   },
@@ -17,8 +17,8 @@
   "author": "Your Name",
   "license": "ISC",
   "dependencies": {
-    "@tinacms/cli": "latest",  
-    "tinacms": "latest",       
+    "@tinacms/cli": "latest",
+    "tinacms": "latest",
     "graphql": "^16.x.x",
     "graphql-request": "^6.x.x",
     "http-server": "^14.x.x",
