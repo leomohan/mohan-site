@@ -1,0 +1,12 @@
+[build]
+  publish = "public" # Or wherever your built site's static files end up (e.g., if you use a build tool like Jekyll, Hugo, Eleventy, etc., this would be your output directory)
+                    # If your `index.html` and `admin/` folder are directly in your repository root, you might omit this or set it to "." (current directory)
+  command = "npm run build" # Or "npm install" if your site doesn't have a separate build step beyond installing dependencies
+  functions = "netlify/functions" # This tells Netlify where to find your serverless functions
+
+# If you need to redirect requests to the function, although auth_proxy_url should handle it,
+# sometimes explicit redirects are helpful for other API functions.
+# [[redirects]]
+#   from = "/.netlify/functions/auth"
+#   to = "/.netlify/functions/auth"
+#   status = 200
