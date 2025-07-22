@@ -17,6 +17,6 @@
     "graphql": "^16.x.x",
     "graphql-request": "^6.x.x",
     "http-server": "^14.x.x"
-    
+    "jsonwebtoken": "^9.x.x" 
   }
 }
