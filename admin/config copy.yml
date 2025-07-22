@@ -1,9 +1,8 @@
-# admin/config.yml
 backend:
   name: github
-  repo: mohan-site/mohan-site # <YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>
-  branch: main # Or master, depending on your default branch
-  auth_proxy_url: https://mohan-site.netlify.app/.netlify/functions/auth-login # Points to your Netlify Function that initiates Auth0 login
+  repo: mohan-site/mohan-site # Your GitHub username/repo name
+  branch: main # Or master
+  auth_proxy_url: https://mohan-site.netlify.app/.netlify/functions/your-auth-function-name # This is where Decap CMS will send auth requests
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"

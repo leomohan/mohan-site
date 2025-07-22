@@ -1,0 +1,17 @@
+{
+  "name": "mohan-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "auth0-js": "^9.22.1", // Or another Auth0 SDK for Node.js
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.6.7" // For Node.js < 18 on Netlify Functions
+  }
+}
