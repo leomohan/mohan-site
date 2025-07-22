@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2020",          // Compile to modern JavaScript
+    "module": "esnext",          // Output ES Modules
+    "outDir": "./.build-temp",   // Output compiled JS files to a new temporary directory
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowJs": true,             // Allow JavaScript files to be part of the compilation (like build-content.mjs)
+    "declaration": false         // No need to generate .d.ts files for this build step
+  },
+  "include": [
+    "build-content.mjs",         // Include your main build script
+    "tina/__generated__/**/*.ts", // Include Tina's generated TypeScript files
+    "tina/__generated__/**/*.js"  // Include any existing JS files from Tina's generation
+  ],
+  "exclude": ["node_modules"]
+}
