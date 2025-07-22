@@ -2,9 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Import the TinaCMS client.
-// This path assumes your build-content.js is at the root of your project
-// and the generated client is in tina/__generated__/client.js
-const { client } = require('./tina/__generated__/client');
+// CHANGE THIS LINE: Explicitly require the .ts file
+const { client } = require('./tina/__generated__/client.ts'); // <--- ADDED .ts EXTENSION
 
 // Define your GraphQL query to fetch homepage data.
 // Ensure this query matches your schema defined in tina/config.ts
