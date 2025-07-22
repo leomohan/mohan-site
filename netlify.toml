@@ -7,16 +7,7 @@
   # The command to run to build your site.
   # Order is crucial:
   # 1. npm install: Installs all dependencies.
-  # 2. tinacms build: Generates the TinaCMS client and admin assets (including tina/__generated__/client.js).
-  # 3. node build-content.js: Runs your script to fetch data using the now-generated client and populate HTML.
-  command = "npm install && tinacms build && node build-content.js"
-
-# Optional: If you have Netlify Functions, specify their directory
-# [functions]
-#   directory = "netlify/functions" # Example path, adjust if you have functions
-
-# Optional: Redirects (if you need them)
-# [[redirects]]
-#   from = "/old-path"
-#   to = "/new-path"
-#   status = 301
+  # 2. tinacms build: Generates the TinaCMS client and admin assets (including tina/__generated__/client.ts).
+  # 3. tsc --project tina/tsconfig.json: Compiles Tina's generated TypeScript files to JavaScript.
+  # 4. node build-content.mjs: Runs your script, which now imports the compiled JavaScript client.
+  command = "npm install && tinacms build && tsc --project tina/tsconfig.json && node build-content.mjs"
