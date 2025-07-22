@@ -2,7 +2,7 @@ backend:
   name: github
   repo: mohan-site/mohan-site # Your actual GitHub username and repo name
   branch: main # Or master
-  auth_proxy_url: https://mohan-site.netlify.app/.netlify/functions/auth-login # Point to auth-login.js
+  auth_proxy_url: https://mohan-site.netlify.app/.netlify/functions/cms-auth-init # Point to auth-login.js
 
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
