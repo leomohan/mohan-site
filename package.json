@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tinacms dev -c \"npx http-server .\"",
-    "build": "tinacms build && ts-node build-content.js", // <--- UPDATED: Use ts-node here
+    "build": "tinacms build && ts-node build-content.js",
     "start": "npx http-server ."
   },
   "keywords": [
@@ -25,7 +25,7 @@
     "jsonwebtoken": "^9.x.x"
   },
   "devDependencies": {
-    "typescript": "^5.x.x",  // <--- ADDED
-    "ts-node": "^10.x.x"     // <--- ADDED
+    "typescript": "^5.x.x",
+    "ts-node": "^10.x.x"
   }
 }
