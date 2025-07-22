@@ -1,22 +1,31 @@
 {
   "name": "mohan-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "A plain HTML website with TinaCMS integration.",
   "main": "index.js",
   "scripts": {
     "dev": "tinacms dev -c \"npx http-server .\"",
-    "build": "node build-content.js && tinacms build",
+    "build": "tinacms build && ts-node build-content.js", // <--- UPDATED: Use ts-node here
     "start": "npx http-server ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "TinaCMS",
+    "Static Site",
+    "HTML",
+    "Netlify"
+  ],
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
-    "tinacms": "^1.x.x",
     "@tinacms/cli": "^1.x.x",
+    "tinacms": "^1.x.x",
     "graphql": "^16.x.x",
     "graphql-request": "^6.x.x",
     "http-server": "^14.x.x",
-    "jsonwebtoken": "^9.x.x" 
+    "jsonwebtoken": "^9.x.x"
+  },
+  "devDependencies": {
+    "typescript": "^5.x.x",  // <--- ADDED
+    "ts-node": "^10.x.x"     // <--- ADDED
   }
 }
