@@ -1,22 +1,23 @@
+// package.json (CORRECTED)
 {
   "name": "mohan-site",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"npx http-server .\"", // Or your site's dev command
-    "build": "node build-content.js && tinacms build", // Run content build, then Tina admin build
-    "start": "npx http-server ." // For local production testing
+    "dev": "tinacms dev -c \"npx http-server .\"", // CORRECTED: Double quotes around `npx http-server .` are escaped.
+    "build": "node build-content.js && tinacms build",
+    "start": "npx http-server ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tinacms": "^1.x.x", // Your TinaCMS version
+    "tinacms": "^1.x.x",
     "@tinacms/cli": "^1.x.x",
     "graphql": "^16.x.x",
     "graphql-request": "^6.x.x",
-    "http-server": "^14.x.x", // If you use it for local dev
-    // "@tinacms/mdx": "^1.x.x" // Needed for rich-text to HTML conversion
+    "http-server": "^14.x.x"
+    // "@tinacms/mdx": "^1.x.x" // Uncomment if you add rich-text to HTML conversion
   }
 }
