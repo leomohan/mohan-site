@@ -9,5 +9,6 @@
   # 1. npm install: Installs all dependencies.
   # 2. tinacms build: Generates the TinaCMS client and admin assets (including tina/__generated__/client.ts).
   # 3. tsc --project tina/tsconfig.json: Compiles Tina's generated TypeScript files to JavaScript.
-  # 4. node build-content.mjs: Runs your script, which now imports the compiled JavaScript client.
-  command = "npm install && tinacms build && tsc --project tina/tsconfig.json && node build-content.mjs"
+  # 4. ls -l tina/__generated__/: NEW DEBUG STEP - Lists the contents of the generated folder.
+  # 5. node build-content.mjs: Runs your script, which now imports the compiled JavaScript client.
+  command = "npm install && tinacms build && tsc --project tina/tsconfig.json && ls -l tina/__generated__/ && node build-content.mjs"
