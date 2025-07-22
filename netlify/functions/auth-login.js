@@ -1,32 +1,25 @@
 // netlify/functions/auth-login.js
-const auth0 = require('auth0-js'); // You'll need to install auth0-js or use a different Auth0 SDK if preferred.
+// No 'auth0-js' import needed here!
+
+const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN;
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID;
+const BASE_URL = process.env.URL || 'http://localhost:8888';
 
 exports.handler = async (event, context) => {
-    const { AUTH0_DOMAIN, AUTH0_CLIENT_ID } = process.env;
-
     if (!AUTH0_DOMAIN || !AUTH0_CLIENT_ID) {
         return {
             statusCode: 500,
-            body: 'Auth0 environment variables are not set.',
+            body: 'Auth0 environment variables (DOMAIN or CLIENT_ID) are not set.',
         };
     }
 
-    const webAuth = new auth0.WebAuth({
-        domain: AUTH0_DOMAIN,
-        clientID: AUTH0_CLIENT_ID,
-        redirectUri: `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/auth-callback`,
-        responseType: 'token id_token', // Request both access token and ID token
-        scope: 'openid profile email', // Standard scopes
-        audience: `https://${AUTH0_DOMAIN}/api/v2/`, // Your Auth0 API Audience (optional, but good practice)
-    });
-
-    // Redirect to Auth0 Universal Login page
-    const authorizeUrl = webAuth.client.buildAuthorizeUrl({
-        redirectUri: `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/auth-callback`,
-        responseType: 'token id_token',
-        scope: 'openid profile email',
-        audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-    });
+    // Manually construct the Auth0 Universal Login URL
+    const authorizeUrl = `https://${AUTH0_DOMAIN}/authorize?` +
+        `response_type=token%20id_token` + // Request both access token and ID token
+        `&client_id=${AUTH0_CLIENT_ID}` +
+        `&redirect_uri=${encodeURIComponent(`${BASE_URL}/.netlify/functions/auth-callback`)}` + // Auth0 will redirect to THIS function
+        `&scope=openid%20profile%20email` + // Standard scopes
+        `&audience=https://${AUTH0_DOMAIN}/api/v2/`; // Your Auth0 API Audience (optional, but good practice)
 
     return {
         statusCode: 302, // Redirect

@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "auth0-js": "^9.22.1",  
     "jsonwebtoken": "^9.0.2",
     "node-fetch": "^2.6.7"  
   }
