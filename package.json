@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "netlify dev"
+    "dev": "tinacms dev -c \"npx http-server .\"", // Or your site's dev command
+    "build": "node build-content.js && tinacms build", // Run content build, then Tina admin build
+    "start": "npx http-server ." // For local production testing
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsonwebtoken": "^9.0.2",
-    "node-fetch": "^2.6.7"  
+    "tinacms": "^1.x.x", // Your TinaCMS version
+    "@tinacms/cli": "^1.x.x",
+    "graphql": "^16.x.x",
+    "graphql-request": "^6.x.x",
+    "http-server": "^14.x.x", // If you use it for local dev
+    // "@tinacms/mdx": "^1.x.x" // Needed for rich-text to HTML conversion
   }
 }

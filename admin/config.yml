@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: prox-auth
   repo: mohan-site/mohan-site # Your actual GitHub username and repo name
   branch: main # Or master
   auth_proxy_url: https://mohan-site.netlify.app/.netlify/functions/cms-auth-init # Point to auth-login.js
