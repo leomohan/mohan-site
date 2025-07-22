@@ -17,8 +17,8 @@
   "author": "Your Name",
   "license": "ISC",
   "dependencies": {
-    "@tinacms/cli": "^1.x.x",
-    "tinacms": "^1.x.x",
+    "@tinacms/cli": "latest",  
+    "tinacms": "latest",       
     "graphql": "^16.x.x",
     "graphql-request": "^6.x.x",
     "http-server": "^14.x.x",
