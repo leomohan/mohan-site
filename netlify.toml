@@ -1,4 +1,0 @@
-# netlify.toml
-[build]
-  publish = "public"
-  command = "npm install && tinacms build && tsc --project tsconfig.build.json && node .build-temp/build-content.mjs"
