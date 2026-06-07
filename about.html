@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Mohan Krishnamurthy — Author, Cybersecurity Strategist, Speaker based in Dubai.">
+<title>About Me — Mohan Krishnamurthy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAF7F2;--cream-dark:#F2EDE4;--ink:#1A1714;--ink-mid:#3D3830;--ink-light:#7A736A;--gold:#A0813A;--gold-light:#C9A55A;--gold-pale:#F0E6CE;--white:#FFFFFF;--border:rgba(160,129,58,0.18);--ff-display:'Cormorant Garamond',Georgia,serif;--ff-body:'DM Sans',sans-serif;--nav-h:72px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;} body{background:var(--cream);color:var(--ink);font-family:var(--ff-body);font-weight:300;line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1.5rem,4vw,3.5rem);gap:2rem;transition:box-shadow var(--transition);}
+.nav.scrolled{box-shadow:0 4px 24px rgba(26,23,20,0.08);}
+.nav-logo{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);white-space:nowrap;flex-shrink:0;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:0.1rem;list-style:none;margin-left:auto;}
+.nav-item{position:relative;}
+.nav-item>a,.nav-item>span{display:flex;align-items:center;gap:0.3rem;padding:0.5rem 0.85rem;font-size:0.82rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);border-radius:4px;cursor:pointer;transition:color var(--transition),background var(--transition);white-space:nowrap;}
+.nav-item>a:hover,.nav-item>span:hover{color:var(--gold);background:var(--gold-pale);}
+.nav-item>span.has-dropdown::after{content:'›';font-size:1rem;transform:rotate(90deg);display:inline-block;transition:transform var(--transition);}
+.nav-item:hover>span.has-dropdown::after{transform:rotate(-90deg);}
+.dropdown{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 12px 40px rgba(26,23,20,0.12);min-width:180px;padding:0.5rem 0;opacity:0;visibility:hidden;transition:opacity var(--transition),transform var(--transition),visibility var(--transition);pointer-events:none;}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.dropdown a{display:block;padding:0.55rem 1.2rem;font-size:0.82rem;letter-spacing:0.04em;color:var(--ink-mid);transition:background var(--transition),color var(--transition);}
+.dropdown a:hover{background:var(--gold-pale);color:var(--gold);}
+.dropdown-divider{height:1px;background:var(--border);margin:0.4rem 0;}
+.nav-hamburger{display:none;margin-left:auto;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+@media(max-width:900px){.nav-links{display:none;}.nav-hamburger{display:flex;}}
+.page-hero{padding-top:var(--nav-h);background:var(--ink);padding-bottom:4rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(160,129,58,0.12) 0%,transparent 60%);}
+.page-hero-inner{max-width:1260px;margin:0 auto;padding:4rem clamp(1.5rem,4vw,3.5rem) 0;}
+.page-breadcrumb{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.25rem;}
+.page-breadcrumb a{color:var(--gold-light);}
+.page-title{font-family:var(--ff-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:0.75rem;}
+.page-title em{font-style:italic;color:var(--gold-light);}
+.page-sub{font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:50ch;}
+.section-inner{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);}
+.section-label{display:flex;align-items:center;gap:1rem;font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);}
+.section-title{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:1.5rem;}
+.section-title em{font-style:italic;color:var(--gold);}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;font-family:var(--ff-body);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all var(--transition);border:none;}
+.btn-primary{background:var(--ink);color:var(--cream);}
+.btn-primary:hover{background:var(--gold);color:var(--white);transform:translateY(-2px);box-shadow:0 8px 24px rgba(160,129,58,0.3);}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px);}
+/* About Layout */
+.about-main{padding:6rem 0;background:var(--white);}
+.about-layout{display:grid;grid-template-columns:380px 1fr;gap:5rem;align-items:start;}
+.about-photo-col{position:sticky;top:calc(var(--nav-h) + 2rem);}
+.about-photo{position:relative;border-radius:6px;overflow:hidden;box-shadow:8px 12px 40px rgba(26,23,20,0.15);}
+.about-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;}
+.about-photo::after{content:'';position:absolute;inset:16px;border:1px solid rgba(160,129,58,0.25);pointer-events:none;border-radius:3px;}
+.about-links{display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;}
+.about-social{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.1rem;border:1px solid var(--border);border-radius:30px;font-size:0.75rem;color:var(--ink-mid);transition:all var(--transition);}
+.about-social:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-pale);}
+.about-text-col{display:flex;flex-direction:column;gap:2.5rem;}
+.about-block h2{font-family:var(--ff-display);font-size:1.6rem;font-weight:600;color:var(--ink);margin-bottom:1rem;line-height:1.2;}
+.about-block p{font-size:0.92rem;color:var(--ink-mid);line-height:1.9;margin-bottom:0.85rem;}
+.about-block p strong{color:var(--ink);font-weight:500;}
+.about-block p:last-child{margin-bottom:0;}
+/* Stats band */
+.stats-band{background:var(--cream-dark);padding:4rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.stat-item{}
+.stat-big{font-family:var(--ff-display);font-size:3rem;font-weight:600;color:var(--ink);line-height:1;}
+.stat-big span{color:var(--gold);}
+.stat-desc{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-top:0.4rem;}
+/* Timeline */
+.timeline-section{padding:6rem 0;background:var(--cream);}
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.timeline-item{position:relative;padding:0 0 3rem 2rem;}
+.timeline-item::before{content:'';position:absolute;left:-5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);}
+.timeline-year{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.4rem;}
+.timeline-title{font-family:var(--ff-display);font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;}
+.timeline-desc{font-size:0.88rem;color:var(--ink-mid);line-height:1.8;}
+/* Footer */
+.footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:3rem 0 2rem;}
+.footer-inner{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:var(--ff-display);font-size:1.2rem;font-weight:600;color:var(--white);}
+.footer-logo span{color:var(--gold-light);}
+.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.footer-nav a{font-size:0.78rem;color:rgba(255,255,255,0.45);transition:color var(--transition);}
+.footer-nav a:hover{color:var(--gold-light);}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.3);}
+@media(max-width:900px){.about-layout{grid-template-columns:1fr;}.about-photo-col{position:static;}.stats-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.stats-row{grid-template-columns:1fr 1fr;}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Mohan <span>Krishnamurthy</span></a>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html#bestsellers">Best Sellers</a></li>
+    <li class="nav-item"><span class="has-dropdown">Books</span><div class="dropdown"><a href="https://books.leomohan.net" target="_blank">📰 New Releases</a><div class="dropdown-divider"></div><a href="technology.html">Technology</a><a href="business.html">Business</a><a href="fiction.html">Fiction</a><a href="general.html">General</a><a href="humor.html">Humor</a><a href="philosophy.html">Philosophy</a><a href="spiritual.html">Spiritual</a><a href="syngress.html">Syngress</a><a href="storybooks.html">Storybooks</a><a href="tamil.html">Tamil Works</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">Articles</span><div class="dropdown"><a href="articles.html">All Articles</a><a href="https://www.linkedin.com/in/leomohan" target="_blank">LinkedIn</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">About</span><div class="dropdown"><a href="about.html">About Me</a><a href="certifications.html">Certifications</a><a href="inspiration.html">Inspiration</a><a href="travel.html">Travel</a><a href="youtube.html">YouTube Channel</a><a href="podcasts.html">Podcasts</a><a href="leoaitoons.html">leoAIToons</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">Book Stores</span><div class="dropdown"><a href="https://www.amazon.com/author/mohankrishnamurthy" target="_blank">Amazon</a><a href="https://www.smashwords.com/profile/view/MohanKrishnamurthy" target="_blank">Smashwords</a><a href="https://www.goodreads.com/mohankrishnamurthy" target="_blank">Goodreads</a><a href="https://www.everand.com/author/870315188/Mohan-Krishnamurthy" target="_blank">Everand</a><a href="https://fable.co/author/mohan-krishnamurthy" target="_blank">Fable</a><a href="https://www.kobo.com/ww/en/search?query=mohan+krishnamurthy" target="_blank">Rakuten Kobo</a><a href="https://www.thalia.de/shop/home/mehr-von-suche/ANY/sp/suche.html?mehrVon=mohan+krishnamurthy" target="_blank">Thalia</a><a href="https://shop.vivlio.com/author/mohan-krishnamurthy/1402656" target="_blank">Vivlio</a><a href="https://www.barnesandnoble.com/s/%22Mohan+Krishnamurthy%22" target="_blank">Barnes &amp; Noble</a><a href="https://bookshop.org/beta-search?keywords=Mohan+Krishnamurthy" target="_blank">Bookshop</a></div></li>
+    <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-breadcrumb"><a href="index.html">Home</a> › About Me</p>
+    <h1 class="page-title">About <em>Me</em></h1>
+    <p class="page-sub">Techie by Day; Storyteller by Night — a journey spanning Tamil Nadu, Bahrain, and the UAE.</p>
+  </div>
+</section>
+<section class="about-main">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-photo-col reveal">
+        <div class="about-photo">
+          <img src="https://raw.githubusercontent.com/leomohan/mohan-site/main/assets/images/dsc-91-1256x1891.jpeg" alt="Mohan Krishnamurthy">
+        </div>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/leomohan" target="_blank" class="about-social">💼 LinkedIn</a>
+          <a href="https://www.youtube.com/leomohan" target="_blank" class="about-social">▶ YouTube</a>
+          <a href="https://leomohan.blogspot.com" target="_blank" class="about-social">✍ Blog</a>
+        </div>
+      </div>
+      <div class="about-text-col">
+        <div class="about-block reveal">
+          <p class="section-label">The Story</p>
+          <h2>From Tamil Nadu to the <em>UAE</em></h2>
+          <p>I'm Mohan Krishnamurthy — known professionally as <strong>Leo Mohan</strong> — a cybersecurity strategist, prolific author, and lifelong learner based in Dubai, UAE.</p>
+          <p>My journey began in a small town in Tamil Nadu, India, where a deep curiosity about technology and an even deeper love of stories took root early. Over 30+ years, that curiosity has taken me across India, Bahrain, and the UAE — and into the boardrooms of some of the region's most forward-thinking organisations.</p>
+          <p>Today I serve as <strong>General Manager of Evanssion FZCO</strong>, a cybersecurity and AI Value-Added Distributor operating across MEA, and <strong>Novaala ME FZCO</strong>, an AI strategy and solutions company. My professional life keeps me at the cutting edge of cybersecurity, AI governance, and digital transformation.</p>
+        </div>
+        <div class="about-block reveal">
+          <h2>The <em>Author</em></h2>
+          <p>But the boardroom is only half the story. By night — and on weekends, during flights, and in quiet cafés — I write. With over <strong>263 published books</strong> spanning technology, fiction, business, humor, philosophy, spirituality, and Tamil-language works, I've built one of the most prolific self-publishing catalogs in the MEA technology community.</p>
+          <p>My early books were co-authored with major publisher <strong>Syngress/Elsevier</strong> (2006–2009), covering enterprise security, Juniper firewalls, Linux, and Microsoft infrastructure. Since then, I've published independently through Amazon KDP, Draft2Digital, Lulu, and Apple Books — reaching readers in over 50 countries.</p>
+          <p>I write under my real name <strong>Mohan Krishnamurthy</strong> for technology, business, and non-fiction works. My books aim to make complex technology accessible, and to find the human stories within the digital world.</p>
+        </div>
+        <div class="about-block reveal">
+          <h2>Beyond the <em>Desk</em></h2>
+          <p>I maintain an active <strong>LinkedIn presence</strong> with 10,000+ followers, publishing a thought leadership article every Wednesday covering AI, cybersecurity, leadership, and life observations. My <strong>YouTube channel</strong> has grown to 2,500+ subscribers, and I host the <strong>leoAIToons</strong> satirical cartoon series — a weekly visual commentary on enterprise AI and the tech industry.</p>
+          <p>I hold <strong>33+ vendor certifications</strong> across the cybersecurity and cloud landscape — from Cisco and Microsoft to the latest AI platforms. Learning is not something I do occasionally; it's how I operate.</p>
+          <p>When not writing or strategising, I'm travelling — camera in hand, collecting new stories and perspectives from around the world.</p>
+        </div>
+        <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="certifications.html" class="btn btn-primary">View Certifications</a>
+          <a href="index.html#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="stats-band reveal">
+  <div class="section-inner">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-big">263<span>+</span></div><div class="stat-desc">Published Books</div></div>
+      <div class="stat-item"><div class="stat-big">33<span>+</span></div><div class="stat-desc">Certifications</div></div>
+      <div class="stat-item"><div class="stat-big">30<span>+</span></div><div class="stat-desc">Years in Industry</div></div>
+      <div class="stat-item"><div class="stat-big">10<span>k+</span></div><div class="stat-desc">LinkedIn Followers</div></div>
+    </div>
+  </div>
+</section>
+<section class="timeline-section">
+  <div class="section-inner">
+    <p class="section-label">Career Journey</p>
+    <h2 class="section-title">Milestones &amp; <em>Highlights</em></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2006–2009</div>
+        <div class="timeline-title">Syngress/Elsevier Published Author</div>
+        <div class="timeline-desc">Co-authored 8 books on enterprise security, Juniper firewalls, Linux, and Microsoft infrastructure with major US publisher Syngress, an imprint of Elsevier.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2010s</div>
+        <div class="timeline-title">Independent Publishing Career Begins</div>
+        <div class="timeline-desc">Launched self-publishing journey on Amazon KDP and Draft2Digital, growing catalog across technology, business, fiction, and spiritual genres.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2015–Present</div>
+        <div class="timeline-title">General Manager — Evanssion FZCO</div>
+        <div class="timeline-desc">Leading a cybersecurity and AI Value-Added Distributor operating across the Middle East and Africa, with a portfolio spanning 12+ cutting-edge vendors.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2020–Present</div>
+        <div class="timeline-title">General Manager — Novaala ME FZCO</div>
+        <div class="timeline-desc">Building an AI strategy and solutions company, pursuing Anthropic Claude and Microsoft AI Cloud partnerships to bring enterprise-grade AI to the MEA region.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2023–Present</div>
+        <div class="timeline-title">leoAIToons & 263+ Books</div>
+        <div class="timeline-desc">Launched the leoAIToons satirical AI cartoon series while crossing 263 published titles — a milestone that reflects a decade of disciplined, prolific writing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Mohan <span>Krishnamurthy</span></div>
+    <nav class="footer-nav"><a href="index.html">Home</a><a href="certifications.html">Certifications</a><a href="articles.html">Articles</a><a href="index.html#contact">Contact</a></nav>
+    <p class="footer-copy">© 2025 Mohan Krishnamurthy</p>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);});
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.08});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

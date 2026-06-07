@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="leoAIToons — Satirical AI cartoons by Mohan Krishnamurthy. Enterprise AI humour with Leo the Lion.">
+<title>leoAIToons — Mohan Krishnamurthy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAF7F2;--cream-dark:#F2EDE4;--ink:#1A1714;--ink-mid:#3D3830;--ink-light:#7A736A;--gold:#A0813A;--gold-light:#C9A55A;--gold-pale:#F0E6CE;--white:#FFFFFF;--border:rgba(160,129,58,0.18);--ff-display:'Cormorant Garamond',Georgia,serif;--ff-body:'DM Sans',sans-serif;--nav-h:72px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;} body{background:var(--cream);color:var(--ink);font-family:var(--ff-body);font-weight:300;line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} img{display:block;max-width:100%;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1.5rem,4vw,3.5rem);gap:2rem;transition:box-shadow var(--transition);}
+.nav.scrolled{box-shadow:0 4px 24px rgba(26,23,20,0.08);}
+.nav-logo{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);white-space:nowrap;flex-shrink:0;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:0.1rem;list-style:none;margin-left:auto;}
+.nav-item{position:relative;}
+.nav-item>a,.nav-item>span{display:flex;align-items:center;gap:0.3rem;padding:0.5rem 0.85rem;font-size:0.82rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);border-radius:4px;cursor:pointer;transition:color var(--transition),background var(--transition);white-space:nowrap;}
+.nav-item>a:hover,.nav-item>span:hover{color:var(--gold);background:var(--gold-pale);}
+.nav-item>span.has-dropdown::after{content:'›';font-size:1rem;transform:rotate(90deg);display:inline-block;transition:transform var(--transition);}
+.nav-item:hover>span.has-dropdown::after{transform:rotate(-90deg);}
+.dropdown{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 12px 40px rgba(26,23,20,0.12);min-width:180px;padding:0.5rem 0;opacity:0;visibility:hidden;transition:opacity var(--transition),transform var(--transition),visibility var(--transition);pointer-events:none;}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.dropdown a{display:block;padding:0.55rem 1.2rem;font-size:0.82rem;letter-spacing:0.04em;color:var(--ink-mid);transition:background var(--transition),color var(--transition);}
+.dropdown a:hover{background:var(--gold-pale);color:var(--gold);}
+.dropdown-divider{height:1px;background:var(--border);margin:0.4rem 0;}
+.nav-hamburger{display:none;margin-left:auto;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+@media(max-width:900px){.nav-links{display:none;}.nav-hamburger{display:flex;}}
+.toons-hero{padding-top:var(--nav-h);background:var(--ink);min-height:50vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.toons-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(160,129,58,0.15) 0%,transparent 60%);}
+.toons-hero-inner{max-width:1260px;margin:0 auto;padding:5rem clamp(1.5rem,4vw,3.5rem);display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:center;}
+.toons-mascot{position:relative;}
+.toons-mascot-circle{width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--gold);box-shadow:0 0 50px rgba(160,129,58,0.4),0 0 100px rgba(160,129,58,0.15);}
+.toons-mascot-circle img{width:100%;height:100%;object-fit:cover;}
+.toons-hero-text{}
+.toons-eyebrow{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);font-weight:500;margin-bottom:1rem;}
+.toons-logo{font-family:var(--ff-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:1rem;}
+.toons-logo em{font-style:italic;color:var(--gold-light);}
+.toons-tagline{font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:50ch;line-height:1.8;}
+.section-inner{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);}
+.latest-section{padding:6rem 0;background:var(--white);}
+.section-label{display:flex;align-items:center;gap:1rem;font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);}
+.section-title{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:2rem;}
+.section-title em{font-style:italic;color:var(--gold);}
+.latest-toon{border:1px solid var(--border);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;max-width:900px;}
+.toon-img-wrap{background:var(--cream-dark);display:flex;align-items:center;justify-content:center;min-height:360px;padding:2rem;}
+.toon-img-wrap img{max-width:100%;border-radius:4px;box-shadow:0 8px 30px rgba(26,23,20,0.15);}
+.toon-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--ink-light);text-align:center;}
+.toon-placeholder .lion-icon{font-size:4rem;}
+.toon-placeholder p{font-size:0.85rem;max-width:24ch;line-height:1.6;}
+.toon-details{padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;}
+.toon-episode{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.toon-title{font-family:var(--ff-display);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1.3;}
+.toon-desc{font-size:0.88rem;color:var(--ink-mid);line-height:1.8;}
+.toon-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem;}
+.tag{display:inline-block;padding:0.3rem 0.75rem;border:1px solid var(--border);border-radius:20px;font-size:0.7rem;letter-spacing:0.08em;color:var(--ink-light);}
+.about-series{padding:5rem 0;background:var(--cream-dark);}
+.about-series-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-series-text{display:flex;flex-direction:column;gap:1.25rem;}
+.about-series-text p{font-size:0.92rem;color:var(--ink-mid);line-height:1.85;}
+.about-series-text p strong{color:var(--ink);font-weight:500;}
+.series-themes{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;}
+.theme-pill{display:flex;align-items:center;gap:0.6rem;padding:0.85rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:6px;font-size:0.82rem;color:var(--ink-mid);transition:all var(--transition);}
+.theme-pill:hover{border-color:var(--gold);background:var(--gold-pale);}
+.theme-pill .theme-icon{font-size:1.1rem;}
+.archive-section{padding:5rem 0;background:var(--white);}
+.archive-note{font-size:0.9rem;color:var(--ink-light);margin-bottom:2rem;}
+.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;}
+.archive-card{background:var(--cream-dark);border:1px solid var(--border);border-radius:6px;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;transition:all var(--transition);cursor:pointer;}
+.archive-card:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-3px);}
+.archive-ep{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.archive-title{font-family:var(--ff-display);font-size:0.95rem;font-weight:600;color:var(--ink);line-height:1.3;}
+.coming-soon{text-align:center;padding:3rem;color:var(--ink-light);grid-column:1/-1;}
+.coming-soon p{font-size:0.88rem;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;font-family:var(--ff-body);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all var(--transition);border:none;}
+.btn-primary{background:var(--ink);color:var(--cream);}
+.btn-primary:hover{background:var(--gold);color:var(--white);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px);}
+.footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:3rem 0 2rem;}
+.footer-inner{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:var(--ff-display);font-size:1.2rem;font-weight:600;color:var(--white);}
+.footer-logo span{color:var(--gold-light);}
+.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.footer-nav a{font-size:0.78rem;color:rgba(255,255,255,0.45);transition:color var(--transition);}
+.footer-nav a:hover{color:var(--gold-light);}
+.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.3);}
+@media(max-width:900px){.toons-hero-inner{grid-template-columns:1fr;}.toons-mascot{display:flex;justify-content:center;}.latest-toon{grid-template-columns:1fr;}.about-series-grid{grid-template-columns:1fr;}.series-themes{grid-template-columns:1fr;}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Mohan <span>Krishnamurthy</span></a>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html#bestsellers">Best Sellers</a></li>
+    <li class="nav-item"><span class="has-dropdown">Books</span><div class="dropdown"><a href="https://books.leomohan.net" target="_blank">📰 New Releases</a><div class="dropdown-divider"></div><a href="technology.html">Technology</a><a href="business.html">Business</a><a href="fiction.html">Fiction</a><a href="general.html">General</a><a href="humor.html">Humor</a><a href="philosophy.html">Philosophy</a><a href="spiritual.html">Spiritual</a><a href="syngress.html">Syngress</a><a href="storybooks.html">Storybooks</a><a href="tamil.html">Tamil Works</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">Articles</span><div class="dropdown"><a href="articles.html">All Articles</a><a href="https://www.linkedin.com/in/leomohan" target="_blank">LinkedIn</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">About</span><div class="dropdown"><a href="about.html">About Me</a><a href="certifications.html">Certifications</a><a href="inspiration.html">Inspiration</a><a href="travel.html">Travel</a><a href="youtube.html">YouTube Channel</a><a href="podcasts.html">Podcasts</a><a href="leoaitoons.html">leoAIToons</a></div></li>
+    <li class="nav-item"><span class="has-dropdown">Book Stores</span><div class="dropdown"><a href="https://www.amazon.com/author/mohankrishnamurthy" target="_blank">Amazon</a><a href="https://www.smashwords.com/profile/view/MohanKrishnamurthy" target="_blank">Smashwords</a><a href="https://www.goodreads.com/mohankrishnamurthy" target="_blank">Goodreads</a><a href="https://www.everand.com/author/870315188/Mohan-Krishnamurthy" target="_blank">Everand</a><a href="https://fable.co/author/mohan-krishnamurthy" target="_blank">Fable</a><a href="https://www.kobo.com/ww/en/search?query=mohan+krishnamurthy" target="_blank">Rakuten Kobo</a><a href="https://www.thalia.de/shop/home/mehr-von-suche/ANY/sp/suche.html?mehrVon=mohan+krishnamurthy" target="_blank">Thalia</a><a href="https://shop.vivlio.com/author/mohan-krishnamurthy/1402656" target="_blank">Vivlio</a><a href="https://www.barnesandnoble.com/s/%22Mohan+Krishnamurthy%22" target="_blank">Barnes &amp; Noble</a><a href="https://bookshop.org/beta-search?keywords=Mohan+Krishnamurthy" target="_blank">Bookshop</a></div></li>
+    <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<section class="toons-hero">
+  <div class="toons-hero-inner">
+    <div class="toons-mascot">
+      <div class="toons-mascot-circle">
+        <img src="https://www.leomohan.net/assets/images/animated-image-of-lion-majestically-walking-about-1256x1256.jpg" alt="Leo the Lion — leoAIToons mascot">
+      </div>
+    </div>
+    <div class="toons-hero-text">
+      <p class="toons-eyebrow">Satirical AI Cartoon Series</p>
+      <h1 class="toons-logo"><em>leo</em>AIToons</h1>
+      <p class="toons-tagline">Where enterprise AI meets corporate reality. A weekly satirical cartoon series told through the eyes of Leo — the lion who's seen every vendor pitch, every governance framework, and every AI "revolution" that wasn't.</p>
+    </div>
+  </div>
+</section>
+<section class="latest-section">
+  <div class="section-inner">
+    <p class="section-label">Latest Cartoon</p>
+    <h2 class="section-title">This Week's <em>Episode</em></h2>
+    <div class="latest-toon reveal">
+      <div class="toon-img-wrap">
+        <div class="toon-placeholder">
+          <span class="lion-icon">🦁</span>
+          <p>Upload your latest cartoon image to<br><strong>assets/images/toon-latest.jpg</strong><br>and update this page.</p>
+        </div>
+      </div>
+      <div class="toon-details">
+        <span class="toon-episode">Episode 01</span>
+        <h3 class="toon-title">The AI Strategy Meeting</h3>
+        <p class="toon-desc">Leo attends yet another "AI Transformation" kickoff. The slides are beautiful. The ROI is theoretical. The coffee is cold. Some things never change.</p>
+        <div class="toon-tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">Enterprise</span>
+          <span class="tag">Strategy</span>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="https://www.linkedin.com/in/leomohan" target="_blank" class="btn btn-primary">Share on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about-series reveal">
+  <div class="section-inner">
+    <div class="about-series-grid">
+      <div class="about-series-text">
+        <p class="section-label">About the Series</p>
+        <h2 class="section-title">AI Satire for the <em>Enterprise</em></h2>
+        <p><strong>leoAIToons</strong> is a weekly satirical cartoon series exploring the absurdity of enterprise AI — the vendor promises, governance theatre, procurement dynamics, and the gap between AI hype and operational reality.</p>
+        <p>Created by Mohan Krishnamurthy, each cartoon is a one-panel commentary on the state of AI in organisations across the Middle East and beyond. Leo the Lion is our guide — part mascot, part sceptic, always watching.</p>
+      </div>
+      <div>
+        <div class="series-themes">
+          <div class="theme-pill"><span class="theme-icon">🤖</span> Agentic AI</div>
+          <div class="theme-pill"><span class="theme-icon">🏛️</span> AI Governance</div>
+          <div class="theme-pill"><span class="theme-icon">🌍</span> MEA/Gulf AI Context</div>
+          <div class="theme-pill"><span class="theme-icon">🛒</span> Vendor Dynamics</div>
+          <div class="theme-pill"><span class="theme-icon">📋</span> Procurement</div>
+          <div class="theme-pill"><span class="theme-icon">🔐</span> AI Security</div>
+          <div class="theme-pill"><span class="theme-icon">📊</span> Leadership</div>
+          <div class="theme-pill"><span class="theme-icon">☁️</span> Cloud Realities</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="archive-section" id="archive">
+  <div class="section-inner">
+    <p class="section-label">Back Issues</p>
+    <h2 class="section-title">Cartoon <em>Archive</em></h2>
+    <p class="archive-note">All past episodes. More cartoons added every week.</p>
+    <div class="archive-grid">
+      <div class="coming-soon"><p>Archive cartoons will appear here as they are published. Check back every week for a new episode — or follow <a href="https://www.linkedin.com/in/leomohan" target="_blank" style="color:var(--gold);">@leomohan on LinkedIn</a> to get them first.</p></div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Mohan <span>Krishnamurthy</span></div>
+    <nav class="footer-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="articles.html">Articles</a><a href="index.html#contact">Contact</a></nav>
+    <p class="footer-copy">© 2025 Mohan Krishnamurthy</p>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);});
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.08});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
