@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcasts — Mohan Krishnamurthy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAF7F2;--cream-dark:#F2EDE4;--ink:#1A1714;--ink-mid:#3D3830;--ink-light:#7A736A;--gold:#A0813A;--gold-light:#C9A55A;--gold-pale:#F0E6CE;--white:#FFFFFF;--border:rgba(160,129,58,0.18);--ff-display:'Cormorant Garamond',Georgia,serif;--ff-body:'DM Sans',sans-serif;--nav-h:72px;--t:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:var(--ff-body);font-weight:300;line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1.5rem,4vw,3.5rem);gap:2rem;transition:box-shadow var(--t);}
+.nav.scrolled{box-shadow:0 4px 24px rgba(26,23,20,0.08);}
+.nav-logo{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);flex-shrink:0;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:0.1rem;list-style:none;margin-left:auto;}
+.nav-item{position:relative;}
+.nav-item>a,.nav-item>span{display:flex;align-items:center;gap:0.3rem;padding:0.5rem 0.85rem;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);border-radius:4px;cursor:pointer;transition:color var(--t),background var(--t);white-space:nowrap;}
+.nav-item>a:hover,.nav-item>span:hover{color:var(--gold);background:var(--gold-pale);}
+.nav-item>span.dd::after{content:'›';transform:rotate(90deg);display:inline-block;transition:transform var(--t);}
+.nav-item:hover>span.dd::after{transform:rotate(-90deg);}
+.drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 12px 40px rgba(26,23,20,0.12);min-width:180px;padding:0.5rem 0;opacity:0;visibility:hidden;transition:opacity var(--t),transform var(--t),visibility var(--t);pointer-events:none;}
+.nav-item:hover .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.drop a{display:block;padding:0.55rem 1.2rem;font-size:0.82rem;color:var(--ink-mid);transition:background var(--t),color var(--t);}
+.drop a:hover{background:var(--gold-pale);color:var(--gold);}
+.nav-hamburger{display:none;margin-left:auto;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+@media(max-width:900px){.nav-links{display:none;}.nav-hamburger{display:flex;}}
+.hero{padding-top:var(--nav-h);background:var(--ink);padding-bottom:4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(160,129,58,0.12) 0%,transparent 60%);}
+.hero-in{max-width:1260px;margin:0 auto;padding:4rem clamp(1.5rem,4vw,3.5rem) 0;}
+.bc{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.25rem;}
+.bc a{color:var(--gold-light);}
+h1{font-family:var(--ff-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:0.75rem;}
+h1 em{font-style:italic;color:var(--gold-light);}
+.sub{font-size:0.9rem;color:rgba(255,255,255,0.5);}
+.main{max-width:900px;margin:0 auto;padding:5rem clamp(1.5rem,4vw,3.5rem) 6rem;}
+.intro{font-size:0.92rem;color:var(--ink-mid);line-height:1.85;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
+.intro strong{color:var(--ink);font-weight:500;}
+.lbl{display:flex;align-items:center;gap:1rem;font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem;}
+.lbl::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3.5rem;}
+.tc{display:flex;align-items:center;gap:0.75rem;padding:0.9rem 1.1rem;background:var(--white);border:1px solid var(--border);border-radius:6px;font-size:0.85rem;color:var(--ink-mid);transition:all var(--t);}
+.tc:hover{border-color:var(--gold);background:var(--gold-pale);}
+.ti{font-size:1.1rem;}
+.inv{background:var(--ink);border-radius:10px;padding:3rem;text-align:center;}
+.inv h3{font-family:var(--ff-display);font-size:1.9rem;font-weight:300;color:var(--white);margin-bottom:0.75rem;}
+.inv h3 em{font-style:italic;color:var(--gold-light);}
+.inv p{font-size:0.88rem;color:rgba(255,255,255,0.58);line-height:1.75;max-width:50ch;margin:0 auto 1.5rem;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2.5rem;background:var(--gold);color:var(--white);font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border-radius:4px;transition:all var(--t);}
+.btn:hover{background:var(--gold-light);transform:translateY(-2px);}
+.footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:2.5rem 0;}
+.fi{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fl{font-family:var(--ff-display);font-size:1.2rem;font-weight:600;color:var(--white);}
+.fl span{color:var(--gold-light);}
+.fn{display:flex;gap:1.5rem;}
+.fn a{font-size:0.78rem;color:rgba(255,255,255,0.45);transition:color var(--t);}
+.fn a:hover{color:var(--gold-light);}
+.fc{font-size:0.72rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(max-width:600px){.tgrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Mohan <span>Krishnamurthy</span></a>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html">Home</a></li>
+    <li class="nav-item"><span class="dd">Books</span><div class="drop"><a href="technology.html">Technology</a><a href="business.html">Business</a><a href="fiction.html">Fiction</a><a href="general.html">General</a><a href="humor.html">Humor</a><a href="philosophy.html">Philosophy</a><a href="spiritual.html">Spiritual</a><a href="syngress.html">Syngress</a><a href="storybooks.html">Storybooks</a><a href="tamil.html">Tamil Works</a></div></li>
+    <li class="nav-item"><a href="articles.html">Articles</a></li>
+    <li class="nav-item"><span class="dd">About</span><div class="drop"><a href="about.html">About Me</a><a href="certifications.html">Certifications</a><a href="inspiration.html">Inspiration</a><a href="travel.html">Travel</a><a href="youtube.html">YouTube</a><a href="podcasts.html">Podcasts</a><a href="leoaitoons.html">leoAIToons</a></div></li>
+    <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+<section class="hero"><div class="hero-in">
+  <p class="bc"><a href="index.html">Home</a> › <a href="about.html">About</a> › Podcasts</p>
+  <h1>Pod<em>casts</em></h1>
+  <p class="sub">Guest appearances, interviews, and conversations on technology, leadership, and writing.</p>
+</div></section>
+<div class="main">
+  <p class="intro">I am available as a guest speaker on podcasts covering <strong>cybersecurity</strong>, <strong>artificial intelligence</strong>, <strong>enterprise technology</strong>, <strong>leadership</strong>, and <strong>the author journey</strong>. With 30+ years of industry experience and 263+ published books, I bring a distinctive blend of practitioner depth and storytelling clarity to every conversation.</p>
+  <p class="lbl">Topics I Speak On</p>
+  <div class="tgrid">
+    <div class="tc reveal"><span class="ti">🤖</span> AI Strategy & Governance</div>
+    <div class="tc reveal"><span class="ti">🔐</span> Cybersecurity in the AI Era</div>
+    <div class="tc reveal"><span class="ti">📚</span> The Self-Publishing Journey</div>
+    <div class="tc reveal"><span class="ti">🌍</span> Technology in MEA & GCC</div>
+    <div class="tc reveal"><span class="ti">📊</span> Leadership & Team Building</div>
+    <div class="tc reveal"><span class="ti">💡</span> AI Safety & Responsible Deployment</div>
+    <div class="tc reveal"><span class="ti">🏢</span> Distribution & Channel Strategy</div>
+    <div class="tc reveal"><span class="ti">✍️</span> Writing Discipline & Productivity</div>
+  </div>
+  <div class="inv reveal">
+    <h3>Invite Me to Your <em>Podcast</em></h3>
+    <p>If you host a podcast on technology, leadership, AI, cybersecurity, or the author journey — I'd love to be a guest. Drop me a message and let's find a date.</p>
+    <a href="index.html#contact" class="btn">Get in Touch →</a>
+  </div>
+</div>
+<footer class="footer"><div class="fi">
+  <div class="fl">Mohan <span>Krishnamurthy</span></div>
+  <nav class="fn"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#contact">Contact</a></nav>
+  <p class="fc">© 2025 Mohan Krishnamurthy</p>
+</div></footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
