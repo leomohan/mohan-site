@@ -1,0 +1,13 @@
+[
+  {"title":"The Open Source AI Blueprint","image":"assets/images/a123-596x894.jpg","buyUrl":"https://www.amazon.in/dp/B0GSJD8HS6","description":"A comprehensive guide to building enterprise AI using open source tools."},
+  {"title":"Secure AI Adoption: A Leadership Playbook","image":"assets/images/a124-596x894.jpg","buyUrl":"https://www.amazon.com/dp/B0GCPZ4HBR","description":"How CXOs and technology leaders can adopt AI securely and responsibly."},
+  {"title":"The AI Stack: A Seven-Layer Reference Model","image":"assets/images/a119-596x894.jpg","buyUrl":"https://www.amazon.in/dp/B0GSBMLJPT","description":"A reference model for building, securing, and governing enterprise AI."},
+  {"title":"Building Enterprise AI with Microsoft","image":"assets/images/a122-1256x1884.jpg","buyUrl":"https://www.amazon.com/dp/B0GSHKWV7H","description":"Practical guide to deploying Microsoft AI tools across the enterprise."},
+  {"title":"From Ideas to Action","image":"assets/images/a20-596x894.jpg","buyUrl":"https://www.amazon.com/dp/B0F8NJHSGC","description":"Turning strategic vision into operational reality."},
+  {"title":"Flowcharting For Excellence","image":"assets/images/a31-596x894.jpg","buyUrl":"https://www.amazon.com/dp/B0F9Y1B92X","description":"Mastering flowcharts for business process clarity."},
+  {"title":"Copilot Decoded","image":"assets/images/a44-596x954.jpg","buyUrl":"https://www.amazon.com/dp/B0F897VB35","description":"Demystifying Microsoft Copilot for everyday enterprise use."},
+  {"title":"Learning ChatGPT","image":"assets/images/a45-376x602.jpg","buyUrl":"https://www.amazon.com/dp/B0F89DTX2Q","description":"A practical guide to mastering ChatGPT for work and life."},
+  {"title":"Gemini Ignition","image":"assets/images/a46-376x564.jpg","buyUrl":"https://www.amazon.com/dp/B0FD8K6SDJ","description":"Getting started with Google Gemini for professionals."},
+  {"title":"Visualize Secure Systems: PlantUML","image":"assets/images/a48-376x564.jpg","buyUrl":"https://www.amazon.com/dp/B0F8B7ZXJH","description":"PlantUML for Network and Security Architects."},
+  {"title":"Mermaid.js for Professionals","image":"assets/images/a49-376x564.jpg","buyUrl":"https://www.amazon.com/dp/B0F8B35LDV","description":"Diagramming and documentation using Mermaid.js."}
+]
