@@ -3,37 +3,10 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Certifications — Mohan Krishnamurthy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-:root{--cream:#FAF7F2;--cream-dark:#F2EDE4;--ink:#1A1714;--ink-mid:#3D3830;--ink-light:#7A736A;--gold:#A0813A;--gold-light:#C9A55A;--gold-pale:#F0E6CE;--white:#FFFFFF;--border:rgba(160,129,58,0.18);--ff-display:'Cormorant Garamond',Georgia,serif;--ff-body:'DM Sans',sans-serif;--nav-h:72px;--t:0.3s cubic-bezier(0.4,0,0.2,1);}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--cream);color:var(--ink);font-family:var(--ff-body);font-weight:300;line-height:1.7;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}img{display:block;max-width:100%;}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(1.5rem,4vw,3.5rem);gap:2rem;transition:box-shadow var(--t);}
-.nav.scrolled{box-shadow:0 4px 24px rgba(26,23,20,0.08);}
-.nav-logo{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);flex-shrink:0;}
-.nav-logo span{color:var(--gold);}
-.nav-links{display:flex;align-items:center;gap:0.1rem;list-style:none;margin-left:auto;}
-.nav-item{position:relative;}
-.nav-item>a,.nav-item>span{display:flex;align-items:center;gap:0.3rem;padding:0.5rem 0.85rem;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);border-radius:4px;cursor:pointer;transition:color var(--t),background var(--t);white-space:nowrap;}
-.nav-item>a:hover,.nav-item>span:hover{color:var(--gold);background:var(--gold-pale);}
-.nav-item>span.dd::after{content:'›';transform:rotate(90deg);display:inline-block;transition:transform var(--t);}
-.nav-item:hover>span.dd::after{transform:rotate(-90deg);}
-.drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 12px 40px rgba(26,23,20,0.12);min-width:180px;padding:0.5rem 0;opacity:0;visibility:hidden;transition:opacity var(--t),transform var(--t),visibility var(--t);pointer-events:none;}
-.nav-item:hover .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
-.drop a{display:block;padding:0.55rem 1.2rem;font-size:0.82rem;color:var(--ink-mid);transition:background var(--t),color var(--t);}
-.drop a:hover{background:var(--gold-pale);color:var(--gold);}
-.nav-hamburger{display:none;margin-left:auto;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
-@media(max-width:900px){.nav-links{display:none;}.nav-hamburger{display:flex;}}
-.hero{padding-top:var(--nav-h);background:var(--ink);padding-bottom:4rem;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(160,129,58,0.12) 0%,transparent 60%);}
-.hero-in{max-width:1260px;margin:0 auto;padding:4rem clamp(1.5rem,4vw,3.5rem) 0;}
-.bc{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.25rem;}
-.bc a{color:var(--gold-light);}
-h1{font-family:var(--ff-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:0.75rem;}
-h1 em{font-style:italic;color:var(--gold-light);}
-.sub{font-size:0.9rem;color:rgba(255,255,255,0.5);}
 .band{background:var(--cream-dark);padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .stats{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center;}
 .sn{font-family:var(--ff-display);font-size:3rem;font-weight:600;color:var(--ink);line-height:1;}
@@ -44,76 +17,35 @@ h1 em{font-style:italic;color:var(--gold-light);}
 .lbl{display:flex;align-items:center;gap:1rem;font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem;}
 .lbl::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;}
-.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all var(--t);}
+.card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all var(--transition);}
 .card:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-2px);}
 .cn{font-family:var(--ff-display);font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;}
 .cc{font-size:0.82rem;color:var(--ink-mid);line-height:1.65;}
 .ct{display:inline-block;margin-top:0.6rem;padding:0.2rem 0.6rem;border:1px solid var(--border);border-radius:20px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);}
-.footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:2.5rem 0;}
-.fi{max-width:1260px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.fl{font-family:var(--ff-display);font-size:1.2rem;font-weight:600;color:var(--white);}
-.fl span{color:var(--gold-light);}
-.fn{display:flex;gap:1.5rem;}
-.fn a{font-size:0.78rem;color:rgba(255,255,255,0.45);transition:color var(--t);}
-.fn a:hover{color:var(--gold-light);}
-.fc{font-size:0.72rem;color:rgba(255,255,255,0.3);}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:none;}
 @media(max-width:600px){.stats{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">Mohan <span>Krishnamurthy</span></a>
-  <ul class="nav-links">
-    <li class="nav-item"><a href="index.html">Home</a></li>
-    <li class="nav-item"><span class="dd">Books</span><div class="drop"><a href="technology.html">Technology</a><a href="business.html">Business</a><a href="fiction.html">Fiction</a><a href="general.html">General</a><a href="humor.html">Humor</a><a href="philosophy.html">Philosophy</a><a href="spiritual.html">Spiritual</a><a href="syngress.html">Syngress</a><a href="storybooks.html">Storybooks</a><a href="tamil.html">Tamil Works</a></div></li>
-    <li class="nav-item"><a href="articles.html">Articles</a></li>
-    <li class="nav-item"><span class="dd">About</span><div class="drop"><a href="about.html">About Me</a><a href="certifications.html">Certifications</a><a href="inspiration.html">Inspiration</a><a href="travel.html">Travel</a><a href="youtube.html">YouTube</a><a href="podcasts.html">Podcasts</a><a href="leoaitoons.html">leoAIToons</a></div></li>
-    <li class="nav-item"><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <div class="nav-hamburger"><span></span><span></span><span></span></div>
-</nav>
-<section class="hero"><div class="hero-in">
-  <p class="bc"><a href="index.html">Home</a> › <a href="about.html">About</a> › Certifications</p>
-  <h1>Certifi<em>cations</em></h1>
-  <p class="sub">33+ vendor certifications spanning cybersecurity, AI, cloud, and enterprise technology.</p>
-</div></section>
-<div class="band"><div class="stats">
-  <div><div class="sn">33<span>+</span></div><div class="sl">Certifications</div></div>
-  <div><div class="sn">15<span>+</span></div><div class="sl">Vendors</div></div>
-  <div><div class="sn">30<span>+</span></div><div class="sl">Years Learning</div></div>
+<nav class="nav" id="nav"><a href="index.html" class="nav-logo">Mohan <span>Krishnamurthy</span></a><ul class="nav-links"><li class="nav-item"><a href="index.html">Home</a></li><li class="nav-item"><span class="has-dropdown">Books</span><div class="dropdown"><a href="technology.html">Technology</a><a href="business.html">Business</a><a href="fiction.html">Fiction</a><a href="general.html">General</a><a href="humor.html">Humor</a><a href="philosophy.html">Philosophy</a><a href="spiritual.html">Spiritual</a><a href="syngress.html">Syngress</a><a href="storybooks.html">Storybooks</a><a href="tamil.html">Tamil Works</a></div></li><li class="nav-item"><a href="articles.html">Articles</a></li><li class="nav-item"><span class="has-dropdown">About</span><div class="dropdown"><a href="about.html">About Me</a><a href="certifications.html">Certifications</a><a href="inspiration.html">Inspiration</a><a href="travel.html">Travel</a><a href="youtube.html">YouTube</a><a href="podcasts.html">Podcasts</a><a href="leoaitoons.html">leoAIToons</a></div></li><li class="nav-item"><a href="index.html#contact">Contact</a></li></ul><div class="nav-hamburger"><span></span><span></span><span></span></div></nav>
+<section class="page-hero"><div class="page-hero-inner"><p class="page-breadcrumb"><a href="index.html">Home</a> › <a href="about.html">About</a> › Certifications</p><h1 class="page-title">Certifi<em>cations</em></h1><p class="page-sub">33+ vendor certifications spanning cybersecurity, AI, cloud, and enterprise technology.</p></div></section>
+<div class="band"><div class="stats"><div><div class="sn">33<span>+</span></div><div class="sl">Certifications</div></div><div><div class="sn">15<span>+</span></div><div class="sl">Vendors</div></div><div><div class="sn">30<span>+</span></div><div class="sl">Years Learning</div></div></div></div>
+<div class="main"><p class="lbl">Professional Certifications</p><p class="intro">A portfolio built over 30+ years of continuous learning across networking, security architecture, cloud platforms, AI, and endpoint security.</p><div class="grid">
+<div class="card reveal"><div class="cn">Cisco</div><div class="cc">CCNA, CCNP Security, CCDP — networking and security architecture fundamentals.</div><span class="ct">Networking · Security</span></div>
+<div class="card reveal"><div class="cn">Microsoft</div><div class="cc">Azure, M365, Security, AI Fundamentals — cloud and productivity platform certifications.</div><span class="ct">Cloud · AI</span></div>
+<div class="card reveal"><div class="cn">EC-Council</div><div class="cc">CEH, CHFI, CCISO — ethical hacking, digital forensics, and CISO-track.</div><span class="ct">Cybersecurity</span></div>
+<div class="card reveal"><div class="cn">Palo Alto Networks</div><div class="cc">PCNSA — next-generation firewall and network security architecture.</div><span class="ct">Firewall · Network Security</span></div>
+<div class="card reveal"><div class="cn">Fortinet</div><div class="cc">NSE certifications — network security expert track across multiple levels.</div><span class="ct">Network Security</span></div>
+<div class="card reveal"><div class="cn">Check Point</div><div class="cc">CCSA, CCSE — security administration and expert certifications.</div><span class="ct">Firewall · Security</span></div>
+<div class="card reveal"><div class="cn">CompTIA</div><div class="cc">Security+, Network+, CySA+ — foundational and analyst-level security.</div><span class="ct">Security · Networking</span></div>
+<div class="card reveal"><div class="cn">ISC²</div><div class="cc">CISSP — Certified Information Systems Security Professional.</div><span class="ct">Security Management</span></div>
+<div class="card reveal"><div class="cn">AWS</div><div class="cc">Cloud Practitioner, Solutions Architect — Amazon Web Services certifications.</div><span class="ct">Cloud</span></div>
+<div class="card reveal"><div class="cn">Juniper Networks</div><div class="cc">JNCIA, JNCIS-SEC — networking and security specialist.</div><span class="ct">Networking · Security</span></div>
+<div class="card reveal"><div class="cn">CrowdStrike</div><div class="cc">Falcon certifications — endpoint detection and response (EDR/XDR).</div><span class="ct">EDR · Endpoint</span></div>
+<div class="card reveal"><div class="cn">Illumio</div><div class="cc">Zero trust segmentation — micro-segmentation and lateral movement prevention.</div><span class="ct">Zero Trust</span></div>
+<div class="card reveal"><div class="cn">Splunk</div><div class="cc">Core Certified User / Power User — SIEM and security analytics.</div><span class="ct">SIEM · Analytics</span></div>
+<div class="card reveal"><div class="cn">ExtraHop</div><div class="cc">Network detection and response (NDR) — encrypted traffic analysis.</div><span class="ct">NDR · Network</span></div>
+<div class="card reveal"><div class="cn">Anthropic / AI Platforms</div><div class="cc">Claude Partner Network — AI safety, responsible deployment, enterprise AI strategy.</div><span class="ct">AI · LLM</span></div>
 </div></div>
-<div class="main">
-  <p class="lbl">Professional Certifications</p>
-  <p class="intro">A portfolio built over 30+ years of continuous learning across networking, security architecture, cloud platforms, AI, and endpoint security — reflecting the full breadth of the cybersecurity and AI landscape.</p>
-  <div class="grid">
-    <div class="card reveal"><div class="cn">Cisco</div><div class="cc">CCNA, CCNP Security, CCDP — networking and security architecture fundamentals.</div><span class="ct">Networking · Security</span></div>
-    <div class="card reveal"><div class="cn">Microsoft</div><div class="cc">Azure, M365, Security, AI Fundamentals — cloud and productivity platform certifications.</div><span class="ct">Cloud · AI</span></div>
-    <div class="card reveal"><div class="cn">EC-Council</div><div class="cc">CEH, CHFI, CCISO — ethical hacking, digital forensics, and CISO-track.</div><span class="ct">Cybersecurity</span></div>
-    <div class="card reveal"><div class="cn">Palo Alto Networks</div><div class="cc">PCNSA — next-generation firewall and network security architecture.</div><span class="ct">Firewall · Network Security</span></div>
-    <div class="card reveal"><div class="cn">Fortinet</div><div class="cc">NSE certifications — network security expert track across multiple levels.</div><span class="ct">Network Security</span></div>
-    <div class="card reveal"><div class="cn">Check Point</div><div class="cc">CCSA, CCSE — security administration and expert certifications.</div><span class="ct">Firewall · Security</span></div>
-    <div class="card reveal"><div class="cn">CompTIA</div><div class="cc">Security+, Network+, CySA+ — foundational and analyst-level security.</div><span class="ct">Security · Networking</span></div>
-    <div class="card reveal"><div class="cn">ISC²</div><div class="cc">CISSP — Certified Information Systems Security Professional.</div><span class="ct">Security Management</span></div>
-    <div class="card reveal"><div class="cn">AWS</div><div class="cc">Cloud Practitioner, Solutions Architect — Amazon Web Services certifications.</div><span class="ct">Cloud</span></div>
-    <div class="card reveal"><div class="cn">Juniper Networks</div><div class="cc">JNCIA, JNCIS-SEC — networking and security specialist.</div><span class="ct">Networking · Security</span></div>
-    <div class="card reveal"><div class="cn">CrowdStrike</div><div class="cc">Falcon certifications — endpoint detection and response (EDR/XDR).</div><span class="ct">EDR · Endpoint</span></div>
-    <div class="card reveal"><div class="cn">Illumio</div><div class="cc">Zero trust segmentation — micro-segmentation and lateral movement prevention.</div><span class="ct">Zero Trust</span></div>
-    <div class="card reveal"><div class="cn">Splunk</div><div class="cc">Core Certified User / Power User — SIEM and security analytics.</div><span class="ct">SIEM · Analytics</span></div>
-    <div class="card reveal"><div class="cn">ExtraHop</div><div class="cc">Network detection and response (NDR) — encrypted traffic analysis.</div><span class="ct">NDR · Network</span></div>
-    <div class="card reveal"><div class="cn">Anthropic / AI Platforms</div><div class="cc">Claude Partner Network — AI safety, responsible deployment, enterprise AI strategy.</div><span class="ct">AI · LLM</span></div>
-  </div>
-</div>
-<footer class="footer"><div class="fi">
-  <div class="fl">Mohan <span>Krishnamurthy</span></div>
-  <nav class="fn"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#contact">Contact</a></nav>
-  <p class="fc">© 2025 Mohan Krishnamurthy</p>
-</div></footer>
-<script>
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+<footer class="footer"><div class="footer-inner"><div class="footer-logo">Mohan <span>Krishnamurthy</span></div><nav class="footer-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#contact">Contact</a></nav><p class="footer-copy">© 2025 Mohan Krishnamurthy</p></div></footer>
+<script>window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+</body></html>
